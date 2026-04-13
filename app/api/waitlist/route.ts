@@ -32,10 +32,27 @@ export async function POST(req: NextRequest) {
   }
 
   const resendKey = process.env.RESEND_API_KEY;
+  const resendAudienceId = process.env.RESEND_AUDIENCE_ID;
 
   if (resendKey) {
+    // Add contact to Resend audience for future marketing emails
+    if (resendAudienceId) {
+      try {
+        await fetch(`https://api.resend.com/audiences/${resendAudienceId}/contacts`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${resendKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, unsubscribed: false }),
+        });
+      } catch (err) {
+        console.error("[waitlist] Resend audience add error:", err);
+      }
+    }
+
+    // Send welcome email
     try {
-      // Send welcome email
       await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -43,7 +60,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Notion Template OS <hello@notiontemplateos.com>",
+          from: "Notion Template OS <noreply@3vo.ai>",
           to: [email],
           subject: "You're on the waitlist 🎉",
           html: `
