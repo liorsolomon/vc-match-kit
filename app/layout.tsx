@@ -38,6 +38,20 @@ export const metadata: Metadata = {
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Notion Template OS",
+  description:
+    "The all-in-one Notion workspace for freelancers and solopreneurs. Manage clients, projects, invoices, and goals — all in one place.",
+  url: "https://templates.3vo.ai",
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "USD",
+    availability: "https://schema.org/PreOrder",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,6 +59,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable} antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full bg-white text-gray-900">
         <PostHogProvider>{children}</PostHogProvider>
 
