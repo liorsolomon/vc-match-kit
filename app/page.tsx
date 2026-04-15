@@ -207,6 +207,16 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-100 py-8 px-6 text-center text-sm text-gray-400">
         <p>© 2026 Notion Template OS · Built for freelancers, by freelancers</p>
+        <p className="mt-2">
+          <a
+            href="https://x.com/3voai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-600 transition-colors"
+          >
+            Follow us on X @3voai
+          </a>
+        </p>
       </footer>
     </div>
   );
