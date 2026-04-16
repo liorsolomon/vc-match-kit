@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://templates.3vo.ai/sitemap.xml",
+    sitemap: "https://validate.3vo.ai/sitemap.xml",
   };
 }
