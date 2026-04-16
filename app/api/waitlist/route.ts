@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const CAMPAIGN_ID = "notion-template-os";
+const CAMPAIGN_ID = "niche-reports";
 
 export async function POST(req: NextRequest) {
   const { email } = await req.json();
@@ -60,22 +60,23 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "Notion Template OS <noreply@3vo.ai>",
+          from: "3vo Niche Reports <noreply@3vo.ai>",
           to: [email],
-          subject: "You're in — your second brain is almost ready 🗂️",
+          subject: "Your niche validation report is on the way 📊",
           html: `<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Your Notion OS is coming</title></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Your niche report is coming</title></head>
 <body style="margin:0;padding:0;background:#f9f9f9;font-family:system-ui,-apple-system,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;">
     <tr><td align="center" style="padding:40px 16px;">
       <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;padding:40px;max-width:560px;">
         <tr><td>
-          <h1 style="margin:0 0 24px;font-size:28px;font-weight:700;color:#111;">Your Notion OS is coming. 🗂️</h1>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">You just joined the Notion Template OS waitlist — and you're getting in before everyone else.</p>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">Notion Template OS isn't just a pretty dashboard. It's a fully-connected productivity system: projects, goals, tasks, weekly reviews, and knowledge base — all linked together and actually working. No more patching templates and hoping they hold.</p>
-          <p style="margin:0 0 32px;font-size:16px;line-height:1.6;color:#444;">We'll let you know the moment it drops. It'll be worth the wait.</p>
-          <p style="margin:0;font-size:15px;color:#666;">— The Notion Template OS team</p>
+          <h1 style="margin:0 0 24px;font-size:28px;font-weight:700;color:#111;">Your niche report is coming. 📊</h1>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">You just signed up for early access to 3vo Niche Reports — and you're ahead of the queue.</p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">Here's what you'll get: a structured market validation report covering competitors, demand signals, pricing benchmarks, and a full ICP profile — delivered as a Notion workspace + PDF bundle in 48 hours or less.</p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">No more weeks of research, no more gut-feel guessing. A clear, structured answer on whether your niche is worth building in.</p>
+          <p style="margin:0 0 32px;font-size:16px;line-height:1.6;color:#444;">We'll reach out shortly with next steps. Starting price is $49 per report.</p>
+          <p style="margin:0;font-size:15px;color:#666;">— The 3vo team</p>
         </td></tr>
       </table>
     </td></tr>

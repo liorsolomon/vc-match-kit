@@ -10,25 +10,25 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://templates.3vo.ai"),
-  title: "Notion Template OS — Your freelance business, finally organized",
+  metadataBase: new URL("https://validate.3vo.ai"),
+  title: "AI Niche Market Validation Reports — Validate Your Niche in 48 Hours",
   description:
-    "The all-in-one Notion workspace for freelancers and solopreneurs. Manage clients, projects, invoices, and goals — all in one place. Join the waitlist.",
+    "Stop guessing. Get a structured market validation report for your niche — competitors, demand signals, pricing benchmarks, and an ICP profile — delivered as a Notion + PDF bundle. Starting at $49.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Notion Template OS — Your freelance business, finally organized",
+    title: "Validate Your Niche in 48 Hours — Not 48 Days",
     description:
-      "The all-in-one Notion workspace for freelancers and solopreneurs. Manage clients, projects, invoices, and goals — all in one place.",
-    url: "https://templates.3vo.ai",
-    siteName: "Notion Template OS",
+      "Stop guessing. Get a structured market validation report for your niche — competitors, demand signals, pricing benchmarks, and an ICP profile — delivered as a Notion + PDF bundle. Starting at $49.",
+    url: "https://validate.3vo.ai",
+    siteName: "3vo Niche Validation",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Notion Template OS — Your freelance business, finally organized",
+        alt: "AI Niche Market Validation Reports — Validate Your Niche in 48 Hours",
       },
     ],
     type: "website",
@@ -41,13 +41,14 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Notion Template OS",
+  name: "AI Niche Market Validation Report",
   description:
-    "The all-in-one Notion workspace for freelancers and solopreneurs. Manage clients, projects, invoices, and goals — all in one place.",
-  url: "https://templates.3vo.ai",
+    "A structured market validation report for your niche — competitors, demand signals, pricing benchmarks, and an ICP profile — delivered as a Notion + PDF bundle.",
+  url: "https://validate.3vo.ai",
   offers: {
     "@type": "Offer",
     priceCurrency: "USD",
+    price: "49",
     availability: "https://schema.org/PreOrder",
   },
 };

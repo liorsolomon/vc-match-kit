@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Notion Template OS — Your freelance business, finally organized";
+export const alt = "AI Niche Market Validation Reports — Validate Your Niche in 48 Hours";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -22,19 +22,19 @@ export default function Image() {
       >
         <div
           style={{
-            background: "#fef3c7",
-            border: "2px solid #fbbf24",
+            background: "#eef2ff",
+            border: "2px solid #818cf8",
             borderRadius: "12px",
             padding: "8px 20px",
             fontSize: "18px",
             fontWeight: 600,
-            color: "#92400e",
+            color: "#3730a3",
             marginBottom: "32px",
             letterSpacing: "0.05em",
             textTransform: "uppercase",
           }}
         >
-          Notion Template OS
+          3vo Niche Reports · Starting at $49
         </div>
         <div
           style={{
@@ -46,10 +46,8 @@ export default function Image() {
             marginBottom: "24px",
           }}
         >
-          Stop juggling tabs.{" "}
-          <span style={{ color: "#f59e0b" }}>
-            Run your freelance business from one workspace.
-          </span>
+          Validate Your Niche in 48 Hours{" "}
+          <span style={{ color: "#4f46e5" }}>— Not 48 Days</span>
         </div>
         <div
           style={{
@@ -59,7 +57,7 @@ export default function Image() {
             maxWidth: "800px",
           }}
         >
-          The all-in-one Notion workspace for freelancers & solopreneurs.
+          Competitors · Demand signals · Pricing benchmarks · ICP profile
         </div>
         <div
           style={{
@@ -68,7 +66,7 @@ export default function Image() {
             color: "#9ca3af",
           }}
         >
-          templates.3vo.ai
+          validate.3vo.ai
         </div>
       </div>
     ),

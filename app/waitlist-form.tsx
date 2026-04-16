@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { usePostHog } from "posthog-js/react";
 
-export default function WaitlistForm({ dark = false }: { dark?: boolean }) {
+export default function WaitlistForm({
+  dark = false,
+  ctaLabel = "Join Waitlist",
+}: {
+  dark?: boolean;
+  ctaLabel?: string;
+}) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const posthog = usePostHog();
@@ -24,6 +30,12 @@ export default function WaitlistForm({ dark = false }: { dark?: boolean }) {
       if (res.ok) {
         setStatus("success");
         posthog?.capture("waitlist_success", { email });
+        if (typeof window !== "undefined" && (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq) {
+          (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Lead");
+        }
+        if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+          (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "sign_up", { method: "waitlist" });
+        }
       } else {
         setStatus("error");
       }
@@ -37,8 +49,8 @@ export default function WaitlistForm({ dark = false }: { dark?: boolean }) {
       <div
         className={`w-full rounded-xl py-4 px-6 text-center font-medium ${
           dark
-            ? "bg-amber-500 text-white"
-            : "bg-amber-50 border border-amber-200 text-amber-800"
+            ? "bg-indigo-500 text-white"
+            : "bg-indigo-50 border border-indigo-200 text-indigo-800"
         }`}
       >
         🎉 You&apos;re on the list! We&apos;ll be in touch.
@@ -54,7 +66,7 @@ export default function WaitlistForm({ dark = false }: { dark?: boolean }) {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@example.com"
-        className={`flex-1 rounded-full px-5 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+        className={`flex-1 rounded-full px-5 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-indigo-400 ${
           dark
             ? "bg-gray-800 border-gray-700 text-white placeholder-gray-500"
             : "bg-white border-gray-200 text-gray-900 placeholder-gray-400"
@@ -63,9 +75,9 @@ export default function WaitlistForm({ dark = false }: { dark?: boolean }) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-amber-500 hover:bg-amber-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors disabled:opacity-50 whitespace-nowrap"
+        className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors disabled:opacity-50 whitespace-nowrap"
       >
-        {status === "loading" ? "Joining…" : "Join Waitlist"}
+        {status === "loading" ? "Submitting…" : ctaLabel}
       </button>
       {status === "error" && (
         <p className="text-red-500 text-xs mt-1 w-full text-center">
