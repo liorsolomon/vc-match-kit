@@ -75,7 +75,7 @@ export default function Home() {
           Validate Your Niche in 48 Hours{" "}
           <span className="text-indigo-600">— Not 48 Days</span>
         </h1>
-        <p className="text-xl text-gray-500 max-w-xl mb-10 leading-relaxed">
+        <p className="text-xl text-gray-600 max-w-xl mb-10 leading-relaxed">
           Stop guessing. Get a structured market validation report for your niche —
           competitors, demand signals, pricing benchmarks, and an ICP profile —
           delivered as a Notion + PDF bundle. Starting at $49.
@@ -90,10 +90,10 @@ export default function Home() {
 
       {/* Social proof bar */}
       <section className="bg-gray-50 border-y border-gray-100 py-6">
-        <div className="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-center text-sm text-gray-500">
-          <span>🧑‍💻 Built for indie founders &amp; solopreneurs</span>
-          <span>⚡ AI-powered research, human-reviewed output</span>
-          <span>📦 Delivered as Notion workspace + PDF</span>
+        <div className="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-center text-sm text-gray-600 font-medium">
+          <span>📊 6 research dimensions per report</span>
+          <span>⏱ 48-hour turnaround</span>
+          <span>🔒 Notion workspace + PDF delivered to your inbox</span>
         </div>
       </section>
 
@@ -102,7 +102,7 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center mb-4">
           Everything you need to decide — in one report
         </h2>
-        <p className="text-gray-500 text-center mb-16 max-w-xl mx-auto">
+        <p className="text-gray-600 text-center mb-16 max-w-xl mx-auto">
           Each report covers six key dimensions of niche viability. No fluff,
           no filler — just the research that actually drives decisions.
         </p>
@@ -114,7 +114,7 @@ export default function Home() {
             >
               <div className="text-3xl mb-3">{d.icon}</div>
               <h3 className="font-semibold text-lg mb-2">{d.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 {d.description}
               </p>
             </div>
@@ -132,25 +132,25 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-indigo-100">
-              <div className="text-3xl font-bold text-indigo-500 mb-4">01</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-4">01</div>
               <h3 className="font-semibold text-lg mb-2">Submit your niche</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Tell us the niche you want to validate — one or two sentences is
                 enough. We handle the rest.
               </p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-indigo-100">
-              <div className="text-3xl font-bold text-indigo-500 mb-4">02</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-4">02</div>
               <h3 className="font-semibold text-lg mb-2">We research it</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Our AI scans competitors, demand data, pricing, and buyer communities
                 — then a human reviews the output for accuracy.
               </p>
             </div>
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-indigo-100">
-              <div className="text-3xl font-bold text-indigo-500 mb-4">03</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-4">03</div>
               <h3 className="font-semibold text-lg mb-2">You get your report</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 In 48 hours or less, your full report lands in your inbox as a
                 Notion workspace link + PDF download.
               </p>
@@ -181,7 +181,7 @@ export default function Home() {
       {/* Pricing */}
       <section className="py-24 px-6 max-w-2xl mx-auto text-center w-full">
         <h2 className="text-3xl font-bold mb-4">Simple, flat pricing</h2>
-        <p className="text-gray-500 mb-12">
+        <p className="text-gray-600 mb-12">
           Pay per report. No subscription, no lock-in.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
