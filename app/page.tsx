@@ -83,7 +83,7 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-3 items-center justify-center w-full max-w-md">
           <WaitlistForm ctaLabel="Validate My Niche — Starting at $49" />
         </div>
-        <p className="text-sm text-gray-500 mt-4">
+        <p className="text-sm text-gray-600 mt-4">
           Enter your email to get early access · First reports shipping now
         </p>
       </section>
@@ -186,11 +186,11 @@ export default function Home() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="border border-gray-200 rounded-2xl p-8 text-left">
-            <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
+            <div className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
               Solo Report
             </div>
             <div className="text-4xl font-bold mb-1">$49</div>
-            <div className="text-gray-500 text-sm mb-6">per report</div>
+            <div className="text-gray-600 text-sm mb-6">per report</div>
             <ul className="text-sm text-gray-600 space-y-2">
               <li>✓ Full 6-section validation report</li>
               <li>✓ Notion workspace + PDF</li>
@@ -202,11 +202,11 @@ export default function Home() {
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
               BEST VALUE
             </div>
-            <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
+            <div className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
               3-Report Bundle
             </div>
             <div className="text-4xl font-bold mb-1">$119</div>
-            <div className="text-gray-500 text-sm mb-6">3 reports · $40 each</div>
+            <div className="text-gray-600 text-sm mb-6">3 reports · $40 each</div>
             <ul className="text-sm text-gray-600 space-y-2">
               <li>✓ Everything in Solo</li>
               <li>✓ Test 3 niches in parallel</li>
@@ -239,7 +239,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8 px-6 text-center text-sm text-gray-500">
+      <footer className="border-t border-gray-100 py-8 px-6 text-center text-sm text-gray-600">
         <p>© 2026 3vo Niche Reports · AI-powered market validation for indie founders</p>
         <p className="mt-2">
           <a
