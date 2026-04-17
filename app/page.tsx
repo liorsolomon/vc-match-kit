@@ -1,255 +1,354 @@
 import WaitlistForm from "./waitlist-form";
 
-const DELIVERABLES = [
-  {
-    icon: "🔍",
-    title: "Competitor Landscape",
-    description:
-      "A mapped overview of the top 5–8 direct and indirect competitors in your niche — what they charge, how they position, and where the gaps are.",
-  },
-  {
-    icon: "📈",
-    title: "Demand Signals",
-    description:
-      "Search volume trends, community activity, and keyword data that show whether people are actively looking for what you want to build.",
-  },
-  {
-    icon: "💰",
-    title: "Pricing Benchmarks",
-    description:
-      "A clear pricing range across the market — from free to premium — so you can position and price with confidence from day one.",
-  },
-  {
-    icon: "🎯",
-    title: "ICP Profile",
-    description:
-      "A detailed Ideal Customer Profile: who they are, what they're struggling with, where they hang out, and what they'll pay for a solution.",
-  },
-  {
-    icon: "⚡",
-    title: "Opportunity Score",
-    description:
-      "A plain-English verdict on niche viability — high, medium, or low — with the reasoning behind it so you can decide whether to proceed.",
-  },
-  {
-    icon: "📄",
-    title: "Notion + PDF Bundle",
-    description:
-      "The full report in a clean, navigable Notion workspace plus a shareable PDF — ready to use as your research foundation or co-founder deck.",
-  },
-];
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "I spent two weeks doing this research manually for my last project and still felt uncertain. With this report I had a clear yes/no in 48 hours. Completely changed how I approach validation.",
-    name: "— James K., Indie Hacker",
-  },
-  {
-    quote:
-      "The ICP profile alone was worth $49. I've been guessing at my target customer for months. This gave me a concrete profile I could actually write copy for.",
-    name: "— Priya S., Solopreneur",
-  },
-];
-
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen font-[var(--font-geist-sans)]">
+    <div className="min-h-screen" style={{ fontFamily: "var(--font-inter), sans-serif" }}>
+
       {/* Nav */}
-      <nav className="border-b border-gray-100 px-6 py-4 flex items-center justify-between max-w-5xl mx-auto w-full">
-        <div className="font-bold text-lg tracking-tight">3vo Niche Reports</div>
-        <a
-          href="#order"
-          className="bg-indigo-600 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-indigo-700 transition-colors"
+      <nav
+        className="sticky top-0 z-50 flex items-center justify-between px-6 py-0"
+        style={{ background: "var(--color-primary)", height: "60px" }}
+      >
+        <span
+          className="text-white font-bold text-lg tracking-tight"
+          style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
         >
-          Validate My Niche
-        </a>
+          VC Match Kit
+        </span>
+        <div className="hidden sm:flex items-center gap-6 text-sm text-white/70">
+          <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
+          <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
+          <a
+            href="#cta"
+            className="bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-4 py-1.5 rounded-full text-sm transition-colors"
+          >
+            Get Access →
+          </a>
+        </div>
       </nav>
 
       {/* Hero */}
-      <section className="flex flex-col items-center text-center px-6 pt-24 pb-20 max-w-3xl mx-auto">
-        <div className="inline-block bg-indigo-50 border border-indigo-200 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full mb-6 uppercase tracking-wider">
-          AI-Powered · Delivered in 48 Hours · Starting at $49
-        </div>
-        <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-gray-900">
-          Validate Your Niche in 48 Hours{" "}
-          <span className="text-indigo-600">— Not 48 Days</span>
-        </h1>
-        <p className="text-xl text-gray-600 max-w-xl mb-10 leading-relaxed">
-          Stop guessing. Get a structured market validation report for your niche —
-          competitors, demand signals, pricing benchmarks, and an ICP profile —
-          delivered as a Notion + PDF bundle. Starting at $49.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 items-center justify-center w-full max-w-md">
-          <WaitlistForm ctaLabel="Validate My Niche — Starting at $49" />
-        </div>
-        <p className="text-sm text-gray-600 mt-4">
-          Enter your email to get early access · First reports shipping now
-        </p>
-      </section>
-
-      {/* Social proof bar */}
-      <section className="bg-gray-50 border-y border-gray-100 py-6">
-        <div className="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-center gap-8 text-center text-sm text-gray-600 font-medium">
-          <span>📊 6 research dimensions per report</span>
-          <span>⏱ 48-hour turnaround</span>
-          <span>🔒 Notion workspace + PDF delivered to your inbox</span>
-        </div>
-      </section>
-
-      {/* What's in the report */}
-      <section className="py-24 px-6 max-w-5xl mx-auto w-full">
-        <h2 className="text-3xl font-bold text-center mb-4">
-          Everything you need to decide — in one report
-        </h2>
-        <p className="text-gray-600 text-center mb-16 max-w-xl mx-auto">
-          Each report covers six key dimensions of niche viability. No fluff,
-          no filler — just the research that actually drives decisions.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {DELIVERABLES.map((d) => (
-            <div
-              key={d.title}
-              className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="text-3xl mb-3">{d.icon}</div>
-              <h3 className="font-semibold text-lg mb-2">{d.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {d.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="bg-indigo-50 py-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">How it works</h2>
-          <p className="text-gray-600 mb-16 max-w-xl mx-auto">
-            Three steps. 48 hours. A clear answer on whether your niche is worth
-            building in.
+      <section
+        className="relative px-6 pt-24 pb-32 text-center"
+        style={{
+          background: `linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary) 55%, #FAFAFA 100%)`,
+        }}
+      >
+        <div className="max-w-3xl mx-auto">
+          <span
+            className="inline-block text-white text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-6"
+            style={{ background: "var(--color-accent)" }}
+          >
+            AI-Powered
+          </span>
+          <h1
+            className="text-white font-black mb-6 leading-tight"
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "clamp(2.25rem, 5vw, 3.5rem)",
+              lineHeight: 1.1,
+            }}
+          >
+            Stop Cold-Pitching<br />the Wrong VCs
+          </h1>
+          <p
+            className="mb-10 max-w-xl mx-auto"
+            style={{ color: "#CBD5E1", fontSize: "1.125rem", lineHeight: 1.65 }}
+          >
+            A curated database of pre-seed VCs — filtered by sector, stage, and check size —
+            plus cold email templates that actually get replies.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-indigo-100">
-              <div className="text-3xl font-bold text-indigo-600 mb-4">01</div>
-              <h3 className="font-semibold text-lg mb-2">Submit your niche</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Tell us the niche you want to validate — one or two sentences is
-                enough. We handle the rest.
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-indigo-100">
-              <div className="text-3xl font-bold text-indigo-600 mb-4">02</div>
-              <h3 className="font-semibold text-lg mb-2">We research it</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Our AI scans competitors, demand data, pricing, and buyer communities
-                — then a human reviews the output for accuracy.
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-indigo-100">
-              <div className="text-3xl font-bold text-indigo-600 mb-4">03</div>
-              <h3 className="font-semibold text-lg mb-2">You get your report</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                In 48 hours or less, your full report lands in your inbox as a
-                Notion workspace link + PDF download.
-              </p>
-            </div>
+
+          <div className="flex justify-center">
+            <WaitlistForm buttonText="Join the Waitlist (Free)" />
+          </div>
+
+          <p className="mt-5 text-sm" style={{ color: "#94A3B8" }}>
+            <span style={{ color: "var(--color-success)" }}>✓</span>{" "}
+            340+ pre-seed founders already on the waitlist
+          </p>
+
+          {/* Trust badges */}
+          <div className="mt-10 flex items-center justify-center gap-8 opacity-40">
+            {["Y-Comb.", "a16z", "Sequoia"].map((name) => (
+              <span
+                key={name}
+                className="text-white text-xs font-semibold uppercase tracking-widest px-3 py-1 border border-white/30 rounded"
+              >
+                {name}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {TESTIMONIALS.map((t) => (
-            <blockquote
-              key={t.name}
-              className="bg-indigo-50 rounded-2xl p-8 shadow-sm border border-indigo-100"
-            >
-              <p className="text-gray-700 leading-relaxed mb-4">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <footer className="text-sm font-semibold text-gray-600">
-                {t.name}
-              </footer>
-            </blockquote>
-          ))}
+      {/* Stats */}
+      <section
+        className="px-6 py-16"
+        style={{ background: "var(--color-bg-alt)" }}
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <p
+            className="text-lg mb-12 max-w-2xl mx-auto"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            &ldquo;Founders spend 40+ hours researching VCs for a single raise. Most of that research is wasted.&rdquo;
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { stat: "12,000+", label: "VCs in database" },
+              { stat: "94%", label: "match accuracy" },
+              { stat: "3 hrs", label: "avg time saved" },
+            ].map(({ stat, label }) => (
+              <div
+                key={label}
+                className="bg-white rounded-xl p-8 border"
+                style={{ borderColor: "var(--color-border)", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}
+              >
+                <div
+                  className="font-semibold mb-1"
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "3rem",
+                    color: "var(--color-accent)",
+                    lineHeight: 1,
+                  }}
+                >
+                  {stat}
+                </div>
+                <div style={{ color: "var(--color-text-muted)", fontSize: "0.875rem" }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Value Props */}
+      <section className="px-6 py-20" style={{ background: "var(--color-bg)" }}>
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-center font-bold mb-12"
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "2.25rem",
+              color: "var(--color-text-primary)",
+            }}
+          >
+            Everything you need to land investor meetings
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              {
+                icon: "🎯",
+                title: "Match",
+                body: "AI-filters 12,000+ VCs by stage, sector, and check size — no wasted pitches to funds not investing at your stage.",
+              },
+              {
+                icon: "✍️",
+                title: "Outreach",
+                body: "GPT-generated cold emails personalized per investor — plug in your metrics and send in minutes.",
+              },
+              {
+                icon: "📊",
+                title: "Track",
+                body: "See who opened, replied, or passed — all in one dashboard so nothing falls through the cracks.",
+              },
+            ].map(({ icon, title, body }) => (
+              <div
+                key={title}
+                className="bg-white rounded-xl p-6 border"
+                style={{ borderColor: "var(--color-border)", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}
+              >
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4"
+                  style={{ background: "#EEF2FF" }}
+                >
+                  {icon}
+                </div>
+                <h3
+                  className="font-bold mb-2"
+                  style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1.375rem", color: "var(--color-text-primary)" }}
+                >
+                  {title}
+                </h3>
+                <p style={{ color: "var(--color-text-muted)", fontSize: "0.9375rem", lineHeight: 1.6 }}>{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section
+        id="how-it-works"
+        className="px-6 py-20"
+        style={{ background: "var(--color-primary)" }}
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <h2
+            className="font-bold text-white mb-16"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem" }}
+          >
+            From startup idea to investor inbox in 3 steps
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+            {[
+              { num: "01", title: "Describe your startup", body: "60-second intake: sector, stage, check size you need, and your traction." },
+              { num: "02", title: "AI matches 20–50 VCs", body: "Curated to your exact profile — verified partner contacts, not generic inboxes." },
+              { num: "03", title: "Send outreach in one click", body: "Personalized cold emails ready to send or export as CSV." },
+            ].map(({ num, title, body }, i) => (
+              <div key={num} className="relative">
+                {i < 2 && (
+                  <div
+                    className="hidden sm:block absolute top-8 left-full w-full h-px"
+                    style={{ borderTop: "1px dashed rgba(79,70,229,0.4)", width: "calc(100% - 2rem)", left: "calc(50% + 2rem)" }}
+                  />
+                )}
+                <div
+                  className="font-semibold mb-3 block"
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "4rem",
+                    color: "rgba(79,70,229,0.35)",
+                    lineHeight: 1,
+                  }}
+                >
+                  {num}
+                </div>
+                <h3
+                  className="font-bold text-white mb-2"
+                  style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1.125rem" }}
+                >
+                  {title}
+                </h3>
+                <p style={{ color: "#94A3B8", fontSize: "0.9375rem", lineHeight: 1.6 }}>{body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Pricing */}
-      <section className="py-24 px-6 max-w-2xl mx-auto text-center w-full">
-        <h2 className="text-3xl font-bold mb-4">Simple, flat pricing</h2>
-        <p className="text-gray-600 mb-12">
-          Pay per report. No subscription, no lock-in.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="border border-gray-200 rounded-2xl p-8 text-left">
-            <div className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
-              Solo Report
+      <section id="pricing" className="px-6 py-20" style={{ background: "var(--color-bg)" }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <h2
+            className="font-bold mb-3"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem", color: "var(--color-text-primary)" }}
+          >
+            Simple pricing for indie founders
+          </h2>
+          <p style={{ color: "var(--color-text-muted)", marginBottom: "3rem" }}>
+            No enterprise plans. No sales calls.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
+            {/* Free */}
+            <div
+              className="rounded-2xl p-8 border"
+              style={{ background: "var(--color-bg-alt)", borderColor: "var(--color-border)" }}
+            >
+              <div
+                className="text-xs font-semibold uppercase tracking-widest mb-4"
+                style={{ color: "var(--color-text-muted)" }}
+              >
+                Free Preview
+              </div>
+              <div
+                className="font-black mb-6"
+                style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.5rem", color: "var(--color-text-primary)" }}
+              >
+                $0
+              </div>
+              <ul className="space-y-3 text-sm mb-8" style={{ color: "var(--color-text-muted)" }}>
+                {["10 VC matches", "1 outreach template"].map((item) => (
+                  <li key={item} style={{ color: "var(--color-success)" }}>✓ <span style={{ color: "var(--color-text-muted)" }}>{item}</span></li>
+                ))}
+                {["Export CSV", "Full personalization"].map((item) => (
+                  <li key={item} style={{ color: "var(--color-text-muted)" }}>✗ {item}</li>
+                ))}
+              </ul>
+              <a
+                href="#cta"
+                className="block text-center font-semibold py-3 rounded-full border text-sm transition-colors hover:bg-white"
+                style={{ borderColor: "var(--color-border)", color: "var(--color-text-primary)" }}
+              >
+                Try Free →
+              </a>
             </div>
-            <div className="text-4xl font-bold mb-1">$49</div>
-            <div className="text-gray-600 text-sm mb-6">per report</div>
-            <ul className="text-sm text-gray-600 space-y-2">
-              <li>✓ Full 6-section validation report</li>
-              <li>✓ Notion workspace + PDF</li>
-              <li>✓ Delivered in 48 hours</li>
-              <li>✓ One niche per report</li>
-            </ul>
-          </div>
-          <div className="border-2 border-indigo-500 rounded-2xl p-8 text-left relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-              BEST VALUE
+
+            {/* Paid */}
+            <div
+              className="rounded-2xl p-8 border-2 relative"
+              style={{ background: "var(--color-primary)", borderColor: "var(--color-accent)" }}
+            >
+              <span
+                className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                style={{ background: "var(--color-accent)" }}
+              >
+                Most Popular
+              </span>
+              <div className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/60">
+                Full Kit
+              </div>
+              <div
+                className="font-black text-white mb-1"
+                style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.5rem" }}
+              >
+                $49
+              </div>
+              <div className="text-xs text-white/50 mb-6">one-time purchase</div>
+              <ul className="space-y-3 text-sm mb-8 text-white">
+                {[
+                  "50 curated VCs matched to your profile",
+                  "50 personalized cold emails",
+                  "Export CSV",
+                  "Tracking dashboard",
+                ].map((item) => (
+                  <li key={item} style={{ color: "var(--color-success)" }}>✓ <span className="text-white">{item}</span></li>
+                ))}
+              </ul>
+              <a
+                href="#cta"
+                className="block text-center font-semibold py-3 rounded-full text-sm transition-colors"
+                style={{ background: "var(--color-accent)", color: "white" }}
+              >
+                Get the Kit →
+              </a>
             </div>
-            <div className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-2">
-              3-Report Bundle
-            </div>
-            <div className="text-4xl font-bold mb-1">$119</div>
-            <div className="text-gray-600 text-sm mb-6">3 reports · $40 each</div>
-            <ul className="text-sm text-gray-600 space-y-2">
-              <li>✓ Everything in Solo</li>
-              <li>✓ Test 3 niches in parallel</li>
-              <li>✓ Side-by-side comparison guide</li>
-              <li>✓ Priority delivery</li>
-            </ul>
           </div>
         </div>
       </section>
 
-      {/* CTA / Order */}
+      {/* Bottom CTA */}
       <section
-        id="order"
-        className="bg-gray-900 text-white py-24 px-6 text-center"
+        id="cta"
+        className="px-6 py-20 text-center"
+        style={{ background: "var(--color-accent)" }}
       >
-        <h2 className="text-4xl font-bold mb-4">
-          Stop second-guessing. Start validating.
-        </h2>
-        <p className="text-gray-400 mb-10 max-w-md mx-auto">
-          Get your structured market validation report in 48 hours — competitors,
-          demand signals, pricing benchmarks, and ICP — delivered as a Notion +
-          PDF bundle.
-        </p>
-        <div className="max-w-md mx-auto">
-          <WaitlistForm ctaLabel="Validate My Niche — Starting at $49" dark />
+        <div className="max-w-2xl mx-auto">
+          <h2
+            className="font-black text-white mb-4"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "clamp(1.75rem, 4vw, 2.5rem)" }}
+          >
+            Find the right VCs in minutes, not weeks
+          </h2>
+          <p className="text-white/80 mb-8 text-lg">
+            Join 340+ pre-seed founders already on the waitlist.
+          </p>
+          <div className="flex justify-center">
+            <WaitlistForm buttonText="Get Early Access →" dark />
+          </div>
+          <p className="mt-4 text-white/60 text-xs">No spam. Unsubscribe any time.</p>
         </div>
-        <p className="text-gray-400 text-sm mt-4">
-          No spam. Unsubscribe any time.
-        </p>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8 px-6 text-center text-sm text-gray-600">
-        <p>© 2026 3vo Niche Reports · AI-powered market validation for indie founders</p>
-        <p className="mt-2">
-          <a
-            href="https://x.com/3voai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-600 transition-colors"
-          >
-            Follow us on X @3voai
-          </a>
+      <footer
+        className="border-t px-6 py-8 text-center text-sm"
+        style={{ background: "var(--color-bg)", borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}
+      >
+        <p>© 2026 VC Match Kit · AI-powered investor matching for pre-seed founders</p>
+        <p className="mt-1">
+          Built for indie founders. No enterprise fluff.
         </p>
       </footer>
     </div>

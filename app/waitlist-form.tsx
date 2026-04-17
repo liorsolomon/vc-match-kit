@@ -1,26 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { usePostHog } from "posthog-js/react";
 
 export default function WaitlistForm({
+  buttonText = "Join the Waitlist (Free)",
+  inputPlaceholder = "you@startup.com",
   dark = false,
-  ctaLabel = "Join Waitlist",
 }: {
+  buttonText?: string;
+  inputPlaceholder?: string;
   dark?: boolean;
-  ctaLabel?: string;
 }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const posthog = usePostHog();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
     setStatus("loading");
-
-    posthog?.capture("waitlist_submitted", { email });
-
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
@@ -29,10 +26,7 @@ export default function WaitlistForm({
       });
       if (res.ok) {
         setStatus("success");
-        posthog?.capture("waitlist_success", { email });
-        if (typeof window !== "undefined" && (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq) {
-          (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Lead");
-        }
+        setEmail("");
         if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
           (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "sign_up", { method: "waitlist" });
         }
@@ -46,43 +40,35 @@ export default function WaitlistForm({
 
   if (status === "success") {
     return (
-      <div
-        className={`w-full rounded-xl py-4 px-6 text-center font-medium ${
-          dark
-            ? "bg-indigo-500 text-white"
-            : "bg-indigo-50 border border-indigo-200 text-indigo-800"
-        }`}
-      >
-        🎉 You&apos;re on the list! We&apos;ll be in touch.
-      </div>
+      <p className={`text-sm font-medium ${dark ? "text-white" : "text-[#10B981]"}`}>
+        ✓ You&apos;re on the list — we&apos;ll be in touch soon.
+      </p>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full">
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
       <input
         type="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@example.com"
-        className={`flex-1 rounded-full px-5 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-indigo-400 ${
+        placeholder={inputPlaceholder}
+        className={`flex-1 rounded-full px-5 py-3 text-sm border focus:outline-none focus:ring-2 focus:ring-[#4F46E5] ${
           dark
-            ? "bg-gray-800 border-gray-700 text-white placeholder-gray-500"
-            : "bg-white border-gray-200 text-gray-900 placeholder-gray-400"
+            ? "bg-white/10 border-white/20 text-white placeholder-white/50"
+            : "bg-white border-[#E2E8F0] text-[#1A1A2E] placeholder-[#64748B]"
         }`}
       />
       <button
         type="submit"
         disabled={status === "loading"}
-        className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors disabled:opacity-50 whitespace-nowrap"
+        className="bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors whitespace-nowrap disabled:opacity-60"
       >
-        {status === "loading" ? "Submitting…" : ctaLabel}
+        {status === "loading" ? "Joining…" : buttonText}
       </button>
       {status === "error" && (
-        <p className="text-red-500 text-xs mt-1 w-full text-center">
-          Something went wrong — please try again.
-        </p>
+        <p className="text-red-400 text-xs mt-1">Something went wrong — please try again.</p>
       )}
     </form>
   );
