@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vcmatchkit.com"),
+  metadataBase: new URL("https://vc.3vo.ai"),
   title: "VC Match Kit — Stop Cold-Pitching the Wrong VCs",
   description:
     "A curated database of pre-seed VCs filtered by sector, stage, and check size — plus cold email templates that actually get replies. Join the waitlist.",

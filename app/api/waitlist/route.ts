@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "VC Match Kit <noreply@vcmatchkit.com>",
+          from: "VC Match Kit <noreply@vc.3vo.ai>",
           to: [email],
           subject: "You're on the VC Match Kit waitlist 🎯",
           html: `<!DOCTYPE html>
