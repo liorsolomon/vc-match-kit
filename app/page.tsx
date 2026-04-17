@@ -1,4 +1,5 @@
 import WaitlistForm from "./waitlist-form";
+import FaqAccordion from "./faq-accordion";
 
 export default function Home() {
   return (
@@ -97,7 +98,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { stat: "12,000+", label: "VCs in database" },
-              { stat: "94%", label: "match accuracy" },
+              { stat: "47", label: "avg investors matched per search" },
               { stat: "3 hrs", label: "avg time saved" },
             ].map(({ stat, label }) => (
               <div
@@ -123,8 +124,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Value Props */}
+      {/* Who This Is For */}
       <section className="px-6 py-20" style={{ background: "var(--color-bg)" }}>
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-center font-bold mb-12"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem", color: "var(--color-text-primary)" }}
+          >
+            Who this is for
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="rounded-xl p-6 border-2" style={{ borderColor: "var(--color-accent)", background: "#EEF2FF" }}>
+              <h3 className="font-bold mb-4" style={{ color: "var(--color-accent)" }}>This is for you if…</h3>
+              <ul className="space-y-3 text-sm" style={{ color: "var(--color-text-primary)" }}>
+                {[
+                  "You are raising a pre-seed or seed round and wasting hours cold-emailing the wrong funds",
+                  "You have traction but no warm intros — you need a smarter way to reach aligned investors",
+                  "You want curated investor matches and outreach copy that sounds human, not template-y",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="shrink-0 mt-0.5" style={{ color: "var(--color-success)" }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl p-6 border" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-alt)" }}>
+              <h3 className="font-bold mb-4" style={{ color: "var(--color-text-muted)" }}>Not for you if…</h3>
+              <ul className="space-y-3 text-sm" style={{ color: "var(--color-text-muted)" }}>
+                {[
+                  "You are raising Series B+ and need institutional relationship management",
+                  "You already have strong warm intros and a full investor pipeline",
+                  "You want a done-for-you fundraising service — this is a self-serve tool",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="shrink-0 mt-0.5">✗</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Value Props */}
+      <section className="px-6 py-20" style={{ background: "var(--color-bg-alt)" }}>
         <div className="max-w-3xl mx-auto">
           <h2
             className="text-center font-bold mb-12"
@@ -318,6 +363,79 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sample Investor Cards */}
+      <section className="px-6 py-20" style={{ background: "var(--color-bg)" }}>
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-center font-bold mb-3"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem", color: "var(--color-text-primary)" }}
+          >
+            What a matched investor looks like
+          </h2>
+          <p className="text-center mb-10" style={{ color: "var(--color-text-muted)" }}>
+            Each match includes verified partner contact, investment thesis, and check size range.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { fund: "Accel", stage: "Pre-Seed / Seed", sector: "B2B SaaS, Dev Tools", check: "$500K–$2M", partner: "Partner: ████████", thesis: "Backing technical founders building category-defining enterprise software." },
+              { fund: "First Round", stage: "Pre-Seed / Seed", sector: "Fintech, Consumer", check: "$500K–$3M", partner: "Partner: ████████", thesis: "Early bets on founders with contrarian insights and unfair distribution advantages." },
+              { fund: "Sequoia Scout", stage: "Pre-Seed", sector: "AI, Infrastructure", check: "$100K–$500K", partner: "Scout: ████████", thesis: "AI-native tools that can scale into platform businesses within 3 years." },
+            ].map((card) => (
+              <div
+                key={card.fund}
+                className="rounded-xl p-5 border relative overflow-hidden"
+                style={{ borderColor: "var(--color-border)", background: "var(--color-bg-alt)" }}
+              >
+                <div
+                  className="absolute inset-x-0 bottom-0 h-16 z-10"
+                  style={{ background: "linear-gradient(to bottom, transparent, var(--color-bg-alt))" }}
+                />
+                <div className="font-bold text-lg mb-1" style={{ color: "var(--color-text-primary)" }}>{card.fund}</div>
+                <div className="text-xs mb-3" style={{ color: "var(--color-accent)" }}>{card.stage}</div>
+                <div className="text-xs mb-1" style={{ color: "var(--color-text-muted)" }}>Sectors: {card.sector}</div>
+                <div className="text-xs mb-1" style={{ color: "var(--color-text-muted)" }}>Check: {card.check}</div>
+                <div className="text-xs mb-3" style={{ color: "var(--color-text-muted)", filter: "blur(3px)" }}>{card.partner}</div>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{card.thesis}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-xs mt-6" style={{ color: "var(--color-text-muted)" }}>
+            Partner details visible after purchase. Avg. 47 matched investors per search.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-6 py-20" style={{ background: "var(--color-bg-alt)" }}>
+        <div className="max-w-2xl mx-auto">
+          <h2
+            className="text-center font-bold mb-10"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem", color: "var(--color-text-primary)" }}
+          >
+            Frequently asked questions
+          </h2>
+          <FaqAccordion />
+        </div>
+      </section>
+
+      {/* Guarantee */}
+      <section className="px-6 py-16 text-center" style={{ background: "var(--color-bg)" }}>
+        <div className="max-w-xl mx-auto">
+          <div
+            className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl mb-6 border-2"
+            style={{ borderColor: "var(--color-accent)", background: "#EEF2FF" }}
+          >
+            🛡️
+          </div>
+          <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-dm-sans), sans-serif", color: "var(--color-text-primary)" }}>
+            30-day money-back guarantee
+          </h2>
+          <p style={{ color: "var(--color-text-muted)" }}>
+            No questions asked. If the kit does not work for your raise within 30 days of purchase, we will give you a full refund.
+          </p>
+        </div>
+      </section>
+
       {/* Bottom CTA */}
       <section
         id="cta"
@@ -337,7 +455,7 @@ export default function Home() {
           <div className="flex justify-center">
             <WaitlistForm buttonText="Get Early Access →" dark />
           </div>
-          <p className="mt-4 text-white/60 text-xs">No spam. Unsubscribe any time.</p>
+          <p className="mt-4 text-white/60 text-xs">30-day money-back guarantee · One-time purchase · Avg. 47 matched investors per search</p>
         </div>
       </section>
 
