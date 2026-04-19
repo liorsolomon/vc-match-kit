@@ -72,10 +72,10 @@ export async function POST(req: NextRequest) {
       <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;padding:40px;max-width:560px;">
         <tr><td>
           <h1 style="margin:0 0 24px;font-size:28px;font-weight:700;color:#0F1B2D;">You're on the list. 🎯</h1>
-          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">You just joined 340+ pre-seed founders waiting for early access to VC Match Kit.</p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">You're on the list for early access to VC Match Kit.</p>
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">Here's what's coming: a curated database of pre-seed VCs filtered by your sector, stage, and check size — plus AI-generated cold email templates personalized to each investor.</p>
           <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">No more cold-pitching funds that don't invest at your stage. Find the right investors in minutes, not weeks.</p>
-          <p style="margin:0 0 32px;font-size:16px;line-height:1.6;color:#444;">We'll reach out with early access details soon. Full Kit launches at $49 one-time.</p>
+          <p style="margin:0 0 32px;font-size:16px;line-height:1.6;color:#444;">We'll reach out with early access details soon. Full Kit is $147 one-time.</p>
           <p style="margin:0;font-size:15px;color:#666;">— The VC Match Kit team</p>
         </td></tr>
       </table>
