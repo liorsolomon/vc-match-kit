@@ -1,4 +1,61 @@
 import WaitlistForm from "./waitlist-form";
+import FaqAccordion from "./faq-accordion";
+
+const WHY = [
+  {
+    title: "Curated, not scraped.",
+    description: "We filter by active investment activity, not just who has \"investor\" in their LinkedIn bio.",
+  },
+  {
+    title: "One-time fee.",
+    description: "Foundersuite charges $528/yr. You pay once and own the list.",
+  },
+  {
+    title: "Sector-specific.",
+    description: "You tell us your stage and category; we deliver the relevant slice — not 10,000 names you have to sort yourself.",
+  },
+];
+
+const HOW_IT_WORKS = [
+  {
+    num: "01",
+    title: "Tell us your criteria",
+    body: "Share your stage (pre-seed, seed, Series A), sector, and check size range.",
+  },
+  {
+    num: "02",
+    title: "We build your list",
+    body: "We curate your investor list within 48 hours — filtered by active investment activity.",
+  },
+  {
+    num: "03",
+    title: "You get a structured spreadsheet",
+    body: "Contact info, recent investments, and thesis notes. Yours to keep.",
+  },
+];
+
+const FAQS = [
+  {
+    q: "How many investors are on the list?",
+    a: "Typically 30–75 actively investing names, filtered to your criteria. Quality over quantity.",
+  },
+  {
+    q: "Is this public data?",
+    a: "Yes — all info is from public sources (Crunchbase, LinkedIn, firm websites, press). We save you the research time.",
+  },
+  {
+    q: "Can I use this for angels, not just VCs?",
+    a: "Yes. Specify what you're looking for and we include both.",
+  },
+  {
+    q: "How is this different from a tool like Foundersuite or Landscape?",
+    a: "We do the filtering for you and charge once. No monthly fee, no DIY database browsing.",
+  },
+  {
+    q: "What if I'm pre-product?",
+    a: "Tell us. Pre-seed and pre-product investors exist — your list will reflect that reality.",
+  },
+];
 
 export default function Home() {
   return (
@@ -13,16 +70,16 @@ export default function Home() {
           className="text-white font-bold text-lg tracking-tight"
           style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
         >
-          VC Match Kit
+          vc.3vo.ai
         </span>
         <div className="hidden sm:flex items-center gap-6 text-sm text-white/70">
           <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
-          <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
+          <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
           <a
-            href="#cta"
+            href="#get-it"
             className="bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-4 py-1.5 rounded-full text-sm transition-colors"
           >
-            Get Access →
+            Get it — $147
           </a>
         </div>
       </nav>
@@ -39,7 +96,7 @@ export default function Home() {
             className="inline-block text-white text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-6"
             style={{ background: "var(--color-accent)" }}
           >
-            AI-Powered
+            Curated · Delivered in 48 hours · $147 one-time
           </span>
           <h1
             className="text-white font-black mb-6 leading-tight"
@@ -49,82 +106,75 @@ export default function Home() {
               lineHeight: 1.1,
             }}
           >
-            Stop Cold-Pitching<br />the Wrong VCs
+            Stop pitching cold.<br />Get in front of investors who are actually writing checks.
           </h1>
           <p
             className="mb-10 max-w-xl mx-auto"
             style={{ color: "#CBD5E1", fontSize: "1.125rem", lineHeight: 1.65 }}
           >
-            A curated database of pre-seed VCs — filtered by sector, stage, and check size —
-            plus cold email templates that actually get replies.
+            A curated VC and angel investor list — filtered by stage, check size, sector, and recent
+            deals. Not a database subscription. One-time. Yours to keep.
           </p>
 
-          <div className="flex justify-center">
-            <WaitlistForm buttonText="Join the Waitlist (Free)" />
+          <div className="flex justify-center" id="get-it">
+            <WaitlistForm buttonText="Get it — $147" />
           </div>
 
           <p className="mt-5 text-sm" style={{ color: "#94A3B8" }}>
-            <span style={{ color: "var(--color-success)" }}>✓</span>{" "}
-            340+ pre-seed founders already on the waitlist
+            $147 — one-time · No subscription · Delivered in 48 hours
           </p>
-
-          {/* Trust badges */}
-          <div className="mt-10 flex items-center justify-center gap-8 opacity-40">
-            {["Y-Comb.", "a16z", "Sequoia"].map((name) => (
-              <span
-                key={name}
-                className="text-white text-xs font-semibold uppercase tracking-widest px-3 py-1 border border-white/30 rounded"
-              >
-                {name}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Why vc.3vo.ai */}
       <section
-        className="px-6 py-16"
-        style={{ background: "var(--color-bg-alt)" }}
+        className="px-6 py-20"
+        style={{ background: "var(--color-bg)" }}
       >
-        <div className="max-w-3xl mx-auto text-center">
-          <p
-            className="text-lg mb-12 max-w-2xl mx-auto"
-            style={{ color: "var(--color-text-muted)" }}
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-center font-bold mb-12"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem", color: "var(--color-text-primary)" }}
           >
-            &ldquo;Founders spend 40+ hours researching VCs for a single raise. Most of that research is wasted.&rdquo;
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { stat: "12,000+", label: "VCs in database" },
-              { stat: "94%", label: "match accuracy" },
-              { stat: "3 hrs", label: "avg time saved" },
-            ].map(({ stat, label }) => (
-              <div
-                key={label}
-                className="bg-white rounded-xl p-8 border"
-                style={{ borderColor: "var(--color-border)", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}
-              >
-                <div
-                  className="font-semibold mb-1"
-                  style={{
-                    fontFamily: "var(--font-jetbrains-mono), monospace",
-                    fontSize: "3rem",
-                    color: "var(--color-accent)",
-                    lineHeight: 1,
-                  }}
-                >
-                  {stat}
-                </div>
-                <div style={{ color: "var(--color-text-muted)", fontSize: "0.875rem" }}>{label}</div>
-              </div>
-            ))}
+            Who this is for
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="rounded-xl p-6 border-2" style={{ borderColor: "var(--color-accent)", background: "#EEF2FF" }}>
+              <h3 className="font-bold mb-4" style={{ color: "var(--color-accent)" }}>This is for you if…</h3>
+              <ul className="space-y-3 text-sm" style={{ color: "var(--color-text-primary)" }}>
+                {[
+                  "You are raising a pre-seed or seed round and wasting hours cold-emailing the wrong funds",
+                  "You have traction but no warm intros — you need a smarter way to reach aligned investors",
+                  "You want curated investor matches and outreach copy that sounds human, not template-y",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="shrink-0 mt-0.5" style={{ color: "var(--color-success)" }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl p-6 border" style={{ borderColor: "var(--color-border)", background: "var(--color-bg-alt)" }}>
+              <h3 className="font-bold mb-4" style={{ color: "var(--color-text-muted)" }}>Not for you if…</h3>
+              <ul className="space-y-3 text-sm" style={{ color: "var(--color-text-muted)" }}>
+                {[
+                  "You are raising Series B+ and need institutional relationship management",
+                  "You already have strong warm intros and a full investor pipeline",
+                  "You want a done-for-you fundraising service — this is a self-serve tool",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="shrink-0 mt-0.5">✗</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Value Props */}
-      <section className="px-6 py-20" style={{ background: "var(--color-bg)" }}>
+      <section className="px-6 py-20" style={{ background: "var(--color-bg-alt)" }}>
         <div className="max-w-3xl mx-auto">
           <h2
             className="text-center font-bold mb-12"
@@ -134,44 +184,22 @@ export default function Home() {
               color: "var(--color-text-primary)",
             }}
           >
-            Everything you need to land investor meetings
+            Why vc.3vo.ai
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              {
-                icon: "🎯",
-                title: "Match",
-                body: "AI-filters 12,000+ VCs by stage, sector, and check size — no wasted pitches to funds not investing at your stage.",
-              },
-              {
-                icon: "✍️",
-                title: "Outreach",
-                body: "GPT-generated cold emails personalized per investor — plug in your metrics and send in minutes.",
-              },
-              {
-                icon: "📊",
-                title: "Track",
-                body: "See who opened, replied, or passed — all in one dashboard so nothing falls through the cracks.",
-              },
-            ].map(({ icon, title, body }) => (
+            {WHY.map(({ title, description }) => (
               <div
                 key={title}
                 className="bg-white rounded-xl p-6 border"
                 style={{ borderColor: "var(--color-border)", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}
               >
-                <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4"
-                  style={{ background: "#EEF2FF" }}
-                >
-                  {icon}
-                </div>
                 <h3
                   className="font-bold mb-2"
-                  style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1.375rem", color: "var(--color-text-primary)" }}
+                  style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "1.125rem", color: "var(--color-text-primary)" }}
                 >
                   {title}
                 </h3>
-                <p style={{ color: "var(--color-text-muted)", fontSize: "0.9375rem", lineHeight: 1.6 }}>{body}</p>
+                <p style={{ color: "var(--color-text-muted)", fontSize: "0.9375rem", lineHeight: 1.6 }}>{description}</p>
               </div>
             ))}
           </div>
@@ -189,14 +217,10 @@ export default function Home() {
             className="font-bold text-white mb-16"
             style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem" }}
           >
-            From startup idea to investor inbox in 3 steps
+            From criteria to investor inbox in 3 steps
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-            {[
-              { num: "01", title: "Describe your startup", body: "60-second intake: sector, stage, check size you need, and your traction." },
-              { num: "02", title: "AI matches 20–50 VCs", body: "Curated to your exact profile — verified partner contacts, not generic inboxes." },
-              { num: "03", title: "Send outreach in one click", body: "Personalized cold emails ready to send or export as CSV." },
-            ].map(({ num, title, body }, i) => (
+            {HOW_IT_WORKS.map(({ num, title, body }, i) => (
               <div key={num} className="relative">
                 {i < 2 && (
                   <div
@@ -228,99 +252,156 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="px-6 py-20" style={{ background: "var(--color-bg)" }}>
-        <div className="max-w-3xl mx-auto text-center">
+      {/* Market context */}
+      <section className="px-6 py-16" style={{ background: "var(--color-bg-alt)" }}>
+        <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+          <div
+            className="bg-white rounded-xl p-8 border"
+            style={{ borderColor: "var(--color-border)", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}
+          >
+            <div
+              className="font-semibold mb-2"
+              style={{
+                fontFamily: "var(--font-jetbrains-mono), monospace",
+                fontSize: "3rem",
+                color: "var(--color-accent)",
+                lineHeight: 1,
+              }}
+            >
+              50+
+            </div>
+            <p style={{ color: "var(--color-text-muted)", fontSize: "0.875rem" }}>
+              investors the average founder contacts before closing a seed round
+            </p>
+          </div>
+          <div
+            className="bg-white rounded-xl p-8 border"
+            style={{ borderColor: "var(--color-border)", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}
+          >
+            <div
+              className="font-semibold mb-2"
+              style={{
+                fontFamily: "var(--font-jetbrains-mono), monospace",
+                fontSize: "3rem",
+                color: "var(--color-accent)",
+                lineHeight: 1,
+              }}
+            >
+              Weeks
+            </div>
+            <p style={{ color: "var(--color-text-muted)", fontSize: "0.875rem" }}>
+              wasted cold-pitching the wrong investor — plus credibility burned
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="px-6 py-20" style={{ background: "var(--color-bg)" }}>
+        <div className="max-w-2xl mx-auto">
           <h2
-            className="font-bold mb-3"
+            className="font-bold text-center mb-12"
             style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem", color: "var(--color-text-primary)" }}
           >
-            Simple pricing for indie founders
+            Frequently asked questions
           </h2>
-          <p style={{ color: "var(--color-text-muted)", marginBottom: "3rem" }}>
-            No enterprise plans. No sales calls.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
-            {/* Free */}
-            <div
-              className="rounded-2xl p-8 border"
-              style={{ background: "var(--color-bg-alt)", borderColor: "var(--color-border)" }}
-            >
-              <div
-                className="text-xs font-semibold uppercase tracking-widest mb-4"
-                style={{ color: "var(--color-text-muted)" }}
+          <div className="space-y-3">
+            {FAQS.map((faq) => (
+              <details
+                key={faq.q}
+                className="group rounded-xl overflow-hidden"
+                style={{ border: `1px solid var(--color-border)` }}
               >
-                Free Preview
-              </div>
-              <div
-                className="font-black mb-6"
-                style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.5rem", color: "var(--color-text-primary)" }}
-              >
-                $0
-              </div>
-              <ul className="space-y-3 text-sm mb-8" style={{ color: "var(--color-text-muted)" }}>
-                {["10 VC matches", "1 outreach template"].map((item) => (
-                  <li key={item} style={{ color: "var(--color-success)" }}>✓ <span style={{ color: "var(--color-text-muted)" }}>{item}</span></li>
-                ))}
-                {["Export CSV", "Full personalization"].map((item) => (
-                  <li key={item} style={{ color: "var(--color-text-muted)" }}>✗ {item}</li>
-                ))}
-              </ul>
-              <a
-                href="#cta"
-                className="block text-center font-semibold py-3 rounded-full border text-sm transition-colors hover:bg-white"
-                style={{ borderColor: "var(--color-border)", color: "var(--color-text-primary)" }}
-              >
-                Try Free →
-              </a>
-            </div>
-
-            {/* Paid */}
-            <div
-              className="rounded-2xl p-8 border-2 relative"
-              style={{ background: "var(--color-primary)", borderColor: "var(--color-accent)" }}
-            >
-              <span
-                className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                style={{ background: "var(--color-accent)" }}
-              >
-                Most Popular
-              </span>
-              <div className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/60">
-                Full Kit
-              </div>
-              <div
-                className="font-black text-white mb-1"
-                style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.5rem" }}
-              >
-                $49
-              </div>
-              <div className="text-xs text-white/50 mb-6">one-time purchase</div>
-              <ul className="space-y-3 text-sm mb-8 text-white">
-                {[
-                  "50 curated VCs matched to your profile",
-                  "50 personalized cold emails",
-                  "Export CSV",
-                  "Tracking dashboard",
-                ].map((item) => (
-                  <li key={item} style={{ color: "var(--color-success)" }}>✓ <span className="text-white">{item}</span></li>
-                ))}
-              </ul>
-              <a
-                href="#cta"
-                className="block text-center font-semibold py-3 rounded-full text-sm transition-colors"
-                style={{ background: "var(--color-accent)", color: "white" }}
-              >
-                Get the Kit →
-              </a>
-            </div>
+                <summary
+                  className="flex items-center justify-between px-6 py-4 cursor-pointer font-medium"
+                  style={{ color: "var(--color-text-primary)" }}
+                >
+                  {faq.q}
+                  <span className="ml-4 text-lg font-light group-open:rotate-45 transition-transform duration-200" style={{ color: "var(--color-accent)" }}>+</span>
+                </summary>
+                <p className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{faq.a}</p>
+              </details>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Sample Investor Cards */}
+      <section className="px-6 py-20" style={{ background: "var(--color-bg)" }}>
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-center font-bold mb-3"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem", color: "var(--color-text-primary)" }}
+          >
+            What a matched investor looks like
+          </h2>
+          <p className="text-center mb-10" style={{ color: "var(--color-text-muted)" }}>
+            Each match includes verified partner contact, investment thesis, and check size range.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { fund: "Accel", stage: "Pre-Seed / Seed", sector: "B2B SaaS, Dev Tools", check: "$500K–$2M", partner: "Partner: ████████", thesis: "Backing technical founders building category-defining enterprise software." },
+              { fund: "First Round", stage: "Pre-Seed / Seed", sector: "Fintech, Consumer", check: "$500K–$3M", partner: "Partner: ████████", thesis: "Early bets on founders with contrarian insights and unfair distribution advantages." },
+              { fund: "Sequoia Scout", stage: "Pre-Seed", sector: "AI, Infrastructure", check: "$100K–$500K", partner: "Scout: ████████", thesis: "AI-native tools that can scale into platform businesses within 3 years." },
+            ].map((card) => (
+              <div
+                key={card.fund}
+                className="rounded-xl p-5 border relative overflow-hidden"
+                style={{ borderColor: "var(--color-border)", background: "var(--color-bg-alt)" }}
+              >
+                <div
+                  className="absolute inset-x-0 bottom-0 h-16 z-10"
+                  style={{ background: "linear-gradient(to bottom, transparent, var(--color-bg-alt))" }}
+                />
+                <div className="font-bold text-lg mb-1" style={{ color: "var(--color-text-primary)" }}>{card.fund}</div>
+                <div className="text-xs mb-3" style={{ color: "var(--color-accent)" }}>{card.stage}</div>
+                <div className="text-xs mb-1" style={{ color: "var(--color-text-muted)" }}>Sectors: {card.sector}</div>
+                <div className="text-xs mb-1" style={{ color: "var(--color-text-muted)" }}>Check: {card.check}</div>
+                <div className="text-xs mb-3" style={{ color: "var(--color-text-muted)", filter: "blur(3px)" }}>{card.partner}</div>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{card.thesis}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-xs mt-6" style={{ color: "var(--color-text-muted)" }}>
+            Partner details visible after purchase. Avg. 47 matched investors per search.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-6 py-20" style={{ background: "var(--color-bg-alt)" }}>
+        <div className="max-w-2xl mx-auto">
+          <h2
+            className="text-center font-bold mb-10"
+            style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "2.25rem", color: "var(--color-text-primary)" }}
+          >
+            Frequently asked questions
+          </h2>
+          <FaqAccordion />
+        </div>
+      </section>
+
+      {/* Guarantee */}
+      <section className="px-6 py-16 text-center" style={{ background: "var(--color-bg)" }}>
+        <div className="max-w-xl mx-auto">
+          <div
+            className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl mb-6 border-2"
+            style={{ borderColor: "var(--color-accent)", background: "#EEF2FF" }}
+          >
+            🛡️
+          </div>
+          <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "var(--font-dm-sans), sans-serif", color: "var(--color-text-primary)" }}>
+            30-day money-back guarantee
+          </h2>
+          <p style={{ color: "var(--color-text-muted)" }}>
+            No questions asked. If the kit does not work for your raise within 30 days of purchase, we will give you a full refund.
+          </p>
         </div>
       </section>
 
       {/* Bottom CTA */}
       <section
-        id="cta"
+        id="get-it"
         className="px-6 py-20 text-center"
         style={{ background: "var(--color-accent)" }}
       >
@@ -329,15 +410,15 @@ export default function Home() {
             className="font-black text-white mb-4"
             style={{ fontFamily: "var(--font-dm-sans), sans-serif", fontSize: "clamp(1.75rem, 4vw, 2.5rem)" }}
           >
-            Find the right VCs in minutes, not weeks
+            Stop pitching cold. Start pitching right.
           </h2>
           <p className="text-white/80 mb-8 text-lg">
-            Join 340+ pre-seed founders already on the waitlist.
+            Get your curated investor list — filtered to your stage, sector, and check size — in 48 hours.
           </p>
           <div className="flex justify-center">
-            <WaitlistForm buttonText="Get Early Access →" dark />
+            <WaitlistForm buttonText="Get it — $147" dark />
           </div>
-          <p className="mt-4 text-white/60 text-xs">No spam. Unsubscribe any time.</p>
+          <p className="mt-4 text-white/60 text-xs">$147 — one-time · No subscription · Yours to keep</p>
         </div>
       </section>
 
@@ -346,10 +427,8 @@ export default function Home() {
         className="border-t px-6 py-8 text-center text-sm"
         style={{ background: "var(--color-bg)", borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}
       >
-        <p>© 2026 VC Match Kit · AI-powered investor matching for pre-seed founders</p>
-        <p className="mt-1">
-          Built for indie founders. No enterprise fluff.
-        </p>
+        <p>© 2026 vc.3vo.ai</p>
+        <p className="mt-1">— The 3vo.ai team</p>
       </footer>
     </div>
   );

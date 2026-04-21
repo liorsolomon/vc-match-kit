@@ -21,8 +21,10 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["600"],
 });
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vcmatchkit.com"),
+  metadataBase: new URL("https://vc.3vo.ai"),
   title: "VC Match Kit — Stop Cold-Pitching the Wrong VCs",
   description:
     "A curated database of pre-seed VCs filtered by sector, stage, and check size — plus cold email templates that actually get replies. Join the waitlist.",
@@ -36,6 +38,7 @@ export const metadata: Metadata = {
     siteName: "VC Match Kit",
     type: "website",
   },
+  ...(googleVerification ? { verification: { google: googleVerification } } : {}),
 };
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;

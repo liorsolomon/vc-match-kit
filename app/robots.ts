@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://vcmatchkit.com/sitemap.xml",
+    sitemap: "https://vc.3vo.ai/sitemap.xml",
   };
 }
