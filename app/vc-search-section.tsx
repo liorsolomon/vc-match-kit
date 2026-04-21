@@ -338,6 +338,8 @@ export default function VcSearchSection() {
                       buttonText="Unlock full list →"
                       inputPlaceholder="you@startup.com"
                       dark
+                      stage={stage || undefined}
+                      sector={sector || undefined}
                     />
                   </div>
                 </div>
