@@ -1,5 +1,6 @@
 import WaitlistForm from "./waitlist-form";
 import FaqAccordion from "./faq-accordion";
+import VcSearchSection from "./vc-search-section";
 
 const WHY = [
   {
@@ -83,6 +84,9 @@ export default function Home() {
           </a>
         </div>
       </nav>
+
+      {/* VC Search — above email capture */}
+      <VcSearchSection />
 
       {/* Hero */}
       <section
