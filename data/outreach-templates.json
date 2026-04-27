@@ -1,0 +1,42 @@
+[
+  {
+    "id": "template-preseed-b2b-saas",
+    "stage": "Pre-seed",
+    "sector": "B2B SaaS",
+    "focus": "Enterprise pain, early traction",
+    "subject": "Cutting [Portfolio Co]'s onboarding time in half — doing the same for [Market]",
+    "body": "Hi [Partner Name],\n\nYour investment in [Portfolio Company] showed you understand the friction enterprise teams face with [relevant pain point] — we're tackling the same root cause in [Target Market].\n\n[Company Name] is a [one-line product description] that [key outcome]. We've landed [X] design partners in the past [Y] weeks, including [recognizable company type], who cut [specific metric] by [%] in their first sprint. The market is [size], and no incumbent is moving fast enough to catch us.\n\nWould you have 20 minutes this week for a quick call, or happy to send the deck first if easier?\n\nBest,\n[Founder Name]\n[Company Name] | Pre-seed | [Traction metric]"
+  },
+  {
+    "id": "template-seed-fintech",
+    "stage": "Seed",
+    "sector": "FinTech",
+    "focus": "Regulatory angle, market size",
+    "subject": "Post-[Regulation] compliance is a $[X]B unlock — here's how we're capturing it",
+    "body": "Hi [Partner Name],\n\nSeeing [Portfolio Company] navigate [regulatory challenge] told me you're comfortable investing in FinTech infrastructure that turns compliance into a moat — that's exactly what [Company Name] is building.\n\nWe automate [compliance workflow] for [customer type], replacing a process that today costs teams [time/cost] per [period]. Since launching six months ago we've signed [X] paying customers with [MRR/ARR], zero churn, and a 14-day sales cycle. The total addressable market is [$XB] and regulation is forcing every [customer type] to act by [deadline].\n\nI'd love to show you a 10-minute live demo — are you free any time this week?\n\nBest,\n[Founder Name]\n[Company Name] | Seed | $[MRR] MRR, [X] customers"
+  },
+  {
+    "id": "template-seed-ai-ml",
+    "stage": "Seed",
+    "sector": "AI/ML",
+    "focus": "Technical differentiation",
+    "subject": "Why [Company Name]'s [core tech] outperforms GPT-4 on [specific task] by [X]%",
+    "body": "Hi [Partner Name],\n\nYour thesis around [AI/ML focus from portfolio] resonates with us — we're building in the same layer of the stack but attacking the [specific bottleneck] that's still unsolved.\n\n[Company Name] has developed [proprietary approach] that achieves [benchmark result] on [task], [X]% better than [existing solution], at [Y]x lower inference cost. We're not wrapping an LLM — our architecture [key differentiator]. Early adopters include [customer type], who saw [outcome metric] within [timeframe]. We're raising $[X]M to reach [milestone].\n\nCould we share a 15-minute technical walkthrough? I think the approach will surprise you.\n\nBest,\n[Founder Name]\n[Company Name] | Seed | [X] customers, $[ARR] ARR"
+  },
+  {
+    "id": "template-series-a-healthtech",
+    "stage": "Series A",
+    "sector": "HealthTech",
+    "focus": "Clinical validation, reimbursement",
+    "subject": "[Company Name] just published [outcome] data — here's why payers are paying attention",
+    "body": "Hi [Partner Name],\n\nYour investment in [Portfolio Company] shows you understand that real HealthTech exits require both clinical evidence and a reimbursement pathway — we've built both.\n\n[Company Name] [product description] for [patient population]. Our 12-month study across [X] sites showed [primary outcome] with statistical significance (p<[value]), and [Payer Name] just issued a Category III CPT code covering our protocol, effective [date]. We're at $[ARR] ARR, growing [X]% month-over-month, with [X] health system contracts signed. We're raising $[X]M Series A to scale the commercial team and pursue Category I status.\n\nWould you have 30 minutes for a call? Happy to share the clinical data and payer correspondence ahead of time.\n\nBest,\n[Founder Name]\n[Company Name] | Series A | $[ARR] ARR, [X] health system partners"
+  },
+  {
+    "id": "template-preseed-consumer",
+    "stage": "Pre-seed",
+    "sector": "Consumer",
+    "focus": "Growth loop, retention",
+    "subject": "[X]% D30 retention and zero paid acquisition — how [Company Name] grows itself",
+    "body": "Hi [Partner Name],\n\nWatching [Portfolio Company] crack organic growth in [category] convinced me your fund gets that the best consumer businesses are built on loops, not campaigns — [Company Name] is that kind of business.\n\nWe built [product description] for [user persona]. Users share on average [X] times in their first week, which drives [Y]% of new signups with zero paid spend. Our D30 retention is [Z]%, well above the [benchmark]% category average. We crossed [X] MAU in [timeframe] and are monetizing through [model] at $[ARPU] per user. We're raising $[X]M to expand to [next channel/market].\n\nI'd love 20 minutes to walk you through the retention and virality data — are you available this week?\n\nBest,\n[Founder Name]\n[Company Name] | Pre-seed | [X] MAU, [D30]% D30 retention"
+  }
+]
