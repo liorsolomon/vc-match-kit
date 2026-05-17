@@ -1,6 +1,7 @@
-import WaitlistForm from "./waitlist-form";
 import FaqAccordion from "./faq-accordion";
 import VcSearchSection from "./vc-search-section";
+
+const BUY_URL = process.env.NEXT_PUBLIC_BUY_URL ?? "/api/checkout";
 
 const WHY = [
   {
@@ -77,7 +78,7 @@ export default function Home() {
           <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
           <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
           <a
-            href="#get-it"
+            href={BUY_URL}
             className="bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold px-4 py-1.5 rounded-full text-sm transition-colors"
           >
             Get it — $147
@@ -121,7 +122,12 @@ export default function Home() {
           </p>
 
           <div className="flex justify-center" id="get-it">
-            <WaitlistForm buttonText="Get it — $147" />
+            <a
+              href={BUY_URL}
+              className="bg-[#4F46E5] hover:bg-[#4338CA] text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-lg inline-block"
+            >
+              Get it — $147
+            </a>
           </div>
 
           <p className="mt-5 text-sm" style={{ color: "#94A3B8" }}>
@@ -420,7 +426,12 @@ export default function Home() {
             Get your curated investor list — filtered to your stage, sector, and check size — in 48 hours.
           </p>
           <div className="flex justify-center">
-            <WaitlistForm buttonText="Get it — $147" dark />
+            <a
+              href={BUY_URL}
+              className="bg-white hover:bg-gray-100 text-[#4F46E5] font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-lg inline-block"
+            >
+              Get it — $147
+            </a>
           </div>
           <p className="mt-4 text-white/60 text-xs">$147 — one-time · No subscription · Yours to keep</p>
         </div>

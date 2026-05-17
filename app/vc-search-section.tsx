@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import WaitlistForm from "./waitlist-form";
+
+const BUY_URL = process.env.NEXT_PUBLIC_BUY_URL ?? "/api/checkout";
 
 interface VcResult {
   id: string;
@@ -314,7 +315,7 @@ export default function VcSearchSection() {
                   ))}
                 </div>
 
-                {/* Email capture CTA */}
+                {/* Buy CTA */}
                 <div
                   className="rounded-2xl p-8 text-center"
                   style={{
@@ -333,15 +334,15 @@ export default function VcSearchSection() {
                     Get partner contacts, check size ranges, portfolio insights, and a
                     personalized cold email for every matched investor.
                   </p>
-                  <div className="flex justify-center">
-                    <WaitlistForm
-                      buttonText="Unlock full list →"
-                      inputPlaceholder="you@startup.com"
-                      dark
-                      stage={stage || undefined}
-                      sector={sector || undefined}
-                    />
-                  </div>
+                  <a
+                    href={BUY_URL}
+                    className="inline-block bg-[#4F46E5] hover:bg-[#4338CA] text-white font-bold text-base px-8 py-4 rounded-xl transition-colors shadow-lg"
+                  >
+                    Get Full Access — $147
+                  </a>
+                  <p className="mt-4 text-xs" style={{ color: "#64748B" }}>
+                    One-time · No subscription · Delivered in 48 hours
+                  </p>
                 </div>
               </>
             ) : null}
